@@ -1,0 +1,42 @@
+#{extends 'admin.html'   /}
+	<div id="page">
+		<!-- Wrapper -->
+		<div class="wrapper">
+				<!-- Left column/section -->
+			<section class="column width6 first">
+				<h3>Article Tables</h3>
+					
+					<table class="display stylized" id="example">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>MailId</th>
+								<th>Their Feedbacks</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="gradeX">
+					#{list items:acc, as:'show'}
+								<td>${show.name}</td>
+								<td>${show.mailId}</td>
+								<td >${show.feedback}</td>
+								<td class="center"><a href="@{application.deletefeed(show.id)}"><img src="/public/images/delete.jpg" alt="Facebook" /></a></td>
+					#{/list}			
+							</tr>
+					
+						</tbody>
+						<tfoot>
+							<tr>
+								<th>Name</th>
+								<th>MailId</th>
+								<th>Their Feedbacks</th>
+								<th></th>
+							</tr>
+						</tfoot>
+					</table>
+					<div class="clear">&nbsp;</div>
+			</section>
+		</div>
+	</div>
+					

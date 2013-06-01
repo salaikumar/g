@@ -1,0 +1,115 @@
+#{extends 'moderator.html'  /}
+<header id="top">
+		<div class="wrapper">
+			<!-- Title/Logo - can use text instead of image -->
+			<div id="title"><a href="@{moderator.index(c.id)}"><font color="white">E-Mags</font></a><!--<span>Administry</span> demo--><h4>A Premium Magazine	</h4></div>
+			<!-- Top navigation -->
+			<div id="topnav">
+				
+				Logged in as <b>${c.name}</b>
+				<span>|</span> <a href="@{moderator.notifications(c.id)}">Notifications</a>
+				<span>|</span> <a href="@{moderator.logout(c)}">Logout</a><br />
+				
+			</div>
+			<!-- End of Top navigation -->
+			<!-- Main navigation -->
+			<nav id="menu">
+				<ul class="sf-menu">
+					<li class="current"><a href="@{moderator.index(c.id)}">New Arrivels</a></li>
+					<li><a href="@{moderator.allposted(c.id)}">All Posted Articles</a></li>
+					<li><a href="@{moderator.allpublished(c.id)}">All Pubished Article</a></li>
+					<li>
+						<a href="#">Articles</a>
+						<ul>
+							
+							<li>
+								<a href="#">New Article</a>
+								<ul>
+									<li><a href="@{moderator.upload(c.id)}">Upload Article</a></li>
+									<li><a href="@{moderator.article(c.id)}">Compose Article</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Your Archieves</a>
+						<ul>
+							<li>
+								<a href="@{moderator.published(c.id)}">Published</a>
+							</li>
+							<li>
+								<a href="@{moderator.draft(c.id)}">Drafts</a>
+							</li>
+							<li>
+								<a href="@{moderator.posted(c.id)}">Posted</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			
+			<!-- End of Main navigation -->
+			<!-- Aside links -->
+			<aside><b><a href="@{moderator.profile(c.id)}">Basic Info</a></b></aside>
+			
+			<!-- End of Aside links -->
+		</div>
+	</header>
+	<!-- End of Header -->
+	<!-- Page title -->
+	<div id="pagetitle">
+		<div class="wrapper">
+			<h1>Dashboard</h1>
+			<!-- Quick search box -->
+			#{form @moderator.search()}<input class="" type="text" value="Enter Article Name to search " id="q" name="keyword" />
+							<input class="" type="hidden" value="${c.id}"  name="a" />
+			#{/form}
+		</div>
+	</div>
+	<!-- End of Page title -->
+	
+	<!-- Page content -->
+	<div id="page">
+		<!-- Wrapper -->
+		<div class="wrapper">
+				<!-- Left column/section -->
+				<section class="column width6 first">
+
+<div id="page">
+		<!-- Wrapper -->
+		<div class="wrapper">
+				<!-- Left column/section -->
+				<section class="column width6 first">					
+					
+					<h3></h3>
+					
+					<div class="box box-info">Comments</div>
+					
+					<table id="report" class="stylized full" style="">
+						<thead>
+							<tr>
+								<th>Article Title</th>
+								<th>Created At</th>
+								<th>Category</th>
+							</tr>
+						</thead>
+						<tbody>
+						#{list items:comm, as:'show'}
+								<td class="title">
+									<div>
+										<b>${show.title}</b>
+										
+									</div>
+								</td>						
+								<td>${show.comment}</td>
+								<td>${}
+								#{a @moderator.publishcomment(show.id,c.id)}<input type="submit" name="submit" value="Publish"  />#{/a}
+								
+								#{a @moderator.deletecomment(show.id,c.id)}<input type="submit" name="submit" value="Delete"  />#{/a}</td>
+							</tr>
+							#{/list}
+						</tbody>
+					</table>
+				</section>
+			</div>
+		</div>

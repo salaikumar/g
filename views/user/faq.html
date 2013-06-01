@@ -1,0 +1,139 @@
+#{extends 'user.html'  /}					
+<header id="top">
+		<div class="wrapper">
+			<!-- Title/Logo - can use text instead of image -->
+			<div id="title"><a href="@{user.index(c.id)}"><font color="white">E-Mags</font></a><!--<span>Administry</span> demo--><h4>A Premium Magazine	</h4></div>
+			<!-- Top navigation -->
+			<div id="topnav">
+				
+				Logged in as <b>${c.name}</b>
+				<span>|</span> <a href="@{user.notifications(c.id)}">Notification</a>
+				<span>|</span> <a href="@{user.logout(c)}">Logout</a><br />
+				
+			</div>
+			<!-- End of Top navigation -->
+			<!-- Main navigation -->
+			<nav id="menu">
+				<ul class="sf-menu">
+					<li class="current"><a href="@{user.index(c.id)}">DashBoard</a></li>
+					
+					
+					<li>
+						<a href="#">Articles</a>
+						<ul>
+							
+							<li>
+								<a href="#">New Article</a>
+								<ul>
+									<li><a href="@{user.uploadarticle(c.id)}">Upload Article</a></li>
+									<li><a href="@{user.article(c.id)}">Compose Article</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Your Archieves</a>
+						<ul>
+							<li>
+								<a href="@{user.published(c.id)}">Published</a>
+							</li>
+							<li>
+								<a href="@{user.draft(c.id)}">Drafts</a>
+							</li>
+							<li>
+								<a href="@{user.posted(c.id)}">Posted</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<!-- End of Main navigation -->
+			<!-- Aside links -->
+			<aside><b><a href="@{user.passcheck(c.id)}">Basic Info</a></b></aside>
+			
+			<!-- End of Aside links -->
+		</div>
+	</header>
+	<!-- End of Header -->
+	<!-- Page title -->
+	<div id="pagetitle">
+		<div class="wrapper">
+			<h1>Dashboard</h1>
+			<!-- Quick search box -->
+			#{form @user.search()}<input class="" type="text" value="Enter Article Name to search " id="q" name="keyword" />
+							<input class="" type="hidden" value="${c.id}"  name="a" />
+			#{/form}
+		</div>
+	</div>
+	<!-- End of Page title -->
+	
+	<!-- Page content -->
+	<div id="page">
+		<!-- Wrapper -->
+		<div class="wrapper">
+				<!-- Left column/section -->
+				<section class="column width6 first">
+
+					<div class="leading clearfix">
+						<div class="column width6 first">
+
+			<h3><p>E-Mags An Online College Magazine</p></h3>
+							
+							
+<fieldset>
+			<h4><p>E-Mags, Provides a good Text Area for the users so that they can edit with their desired styles, save their Articles & lots & lot more so keep posting your ideas!!!!!.</p></h4>
+							<h2>Compose Article</h2>
+		<p>
+			<h5>Step-1</h5>
+			<P>For Composing An Article the user must go to ARTICLES->COMPOSE ARTICLES where you will be getting a page where all the fields are required
+			<h5>Step-2</h5>
+			<P>The user must fill all the fields such as Article title, Article Type, Article Department, Article Category, Tags,Description, Article Content, Option.</P>
+			<p> Through which you can just post the required article</p>
+						
+		</p>
+		
+		</p>
+							<h2>Uploading Article</h2>
+		<p>
+			<h5>Step-1</h5>
+			<P>For Composing An Article the user must go to ARTICLES->UPLOAD ARTICLES where you will be getting a page where all the fields are required
+			<h5>Step-2</h5>
+			<P>The user must fill all the fields such as Article title, Article Type, Article Department, Article Category, Tags,Description, Article Content, Option.</P>
+			<p> Through which you can just post the required article</p>
+						
+		</p>
+		
+		</p>
+						<h2>Saving To Draft</h2>
+		<p>
+			
+			<P>For saving an article the user must go to YOUR ARTICLES->DRAFT
+			
+			<P>Helps the user to save their content in their Draft. So that they resume their content whenever it is required.
+And when the Article is completed and is ready to publish, so when the user is submitted the article is not published unless it is proof read by Moderator. So whenever the user posts an article it comes to the access of Moderator through which it is published in the web.
+.</P>
+			<p> Through which you the article is saved.</p>
+						
+		</p>
+		<h2>Your Published And Poated Article</h2>
+		<p>
+			
+			<P>Viewing the posted & published Articles the user must go to Your Articles->PUBLISHED (or) POSTED ARTICLES 
+			
+			<P>Helps the user to save their content in their Draft. So that they resume their content whenever it is required.
+And when the Article is completed and is ready to publish, so when the user is submitted the article is not published unless it is proof read by Moderator. So whenever the user posts an article it comes to the access of Moderator through which it is published in the web.
+.</P>
+			<p> Through which you the article is saved.</p>
+						
+		</p>
+		
+		</p>
+		
+		
+
+
+</fieldset>
+
+
+						</div>
+					</div>

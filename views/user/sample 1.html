@@ -1,0 +1,184 @@
+#{extends 'user.html'  /}
+<header id="top">
+		<div class="wrapper">
+			<!-- Title/Logo - can use text instead of image -->
+			<div id="title"><a href="@{user.index(c.id)}"><font color="white">E-Mags</font></a><!--<span>Administry</span> demo--><h4>A Premium Magazine	</h4></div>
+			<!-- Top navigation -->
+			<div id="topnav">
+				
+				Logged in as <b>${c.name}</b>
+				<span>|</span> <a href="@{user.notifications(c.id)}">Notification</a>
+				<span>|</span> <a href="@{user.logout(c)}">Logout</a><br />
+				
+			</div>
+			<!-- End of Top navigation -->
+			<!-- Main navigation -->
+			<nav id="menu">
+				<ul class="sf-menu">
+					<li class="current"><a href="@{user.index(c.id)}">DashBoard</a></li>
+					
+					
+					<li>
+						<a href="#">Articles</a>
+						<ul>
+							
+							<li>
+								<a href="#">New Article</a>
+								<ul>
+									<li><a href="@{user.uploadarticle(c.id)}">Upload Article</a></li>
+									<li><a href="@{user.article(c.id)}">Compose Article</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Your Archieves</a>
+						<ul>
+							<li>
+								<a href="@{user.published(c.id)}">Published</a>
+							</li>
+							<li>
+								<a href="@{user.draft(c.id)}">Drafts</a>
+							</li>
+							<li>
+								<a href="@{user.posted(c.id)}">Posted</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<!-- End of Main navigation -->
+			<!-- Aside links -->
+			<aside><b><a href="@{user.passcheck(c.id)}">Basic Info</a></b></aside>
+			
+			<!-- End of Aside links -->
+		</div>
+	</header>
+	<!-- End of Header -->
+	<!-- Page title -->
+	<div id="pagetitle">
+		<div class="wrapper">
+			<h1>Dashboard</h1>
+			<!-- Quick search box -->
+				#{form @user.search()}<input class="" type="text" value="Enter Article Name to search " id="q" name="keyword" />
+							<input class="" type="hidden" value="${c.id}"  name="a" />
+			#{/form}
+		</div>
+	</div>
+	<!-- End of Page title -->
+	
+	<!-- Page content -->
+	<div id="page">
+		<!-- Wrapper -->
+		<div class="wrapper">
+				<!-- Left column/section -->
+				<section class="column width6 first">
+
+<script type="text/javascript" src="@{'public/javascripts/user/jquery.wysiwyg.min.js'}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	/* setup navigation, content boxes, etc... */
+	Administry.setup();
+	
+	// html textbox editor
+	$('.wysiwyg').wysiwyg({
+		controls: {
+			strikeThrough : { visible : true },
+			underline     : { visible : true },
+
+			justifyLeft   : { visible : true },
+			justifyCenter : { visible : true },
+			justifyRight  : { visible : true },
+			justifyFull   : { visible : true },
+
+			indent  : { visible : true },
+			outdent : { visible : true },
+
+			subscript   : { visible : true },
+			superscript : { visible : true },
+
+			undo : { visible : true },
+			redo : { visible : true },
+
+			insertOrderedList    : { visible : true },
+			insertUnorderedList  : { visible : true },
+			insertHorizontalRule : { visible : true },
+
+			h4: {
+				  visible: true,
+				  className: 'h4',
+				  command: $.browser.msie ? 'formatBlock' : 'heading',
+				  arguments: [$.browser.msie ? '<h4>' : 'h4'],
+				  tags: ['h4'],
+				  tooltip: 'Header 4'
+			},
+			h5: {
+				  visible: true,
+				  className: 'h5',
+				  command: $.browser.msie ? 'formatBlock' : 'heading',
+				  arguments: [$.browser.msie ? '<h5>' : 'h5'],
+				  tags: ['h5'],
+				  tooltip: 'Header 5'
+			},
+			h6: {
+				  visible: true,
+				  className: 'h6',
+				  command: $.browser.msie ? 'formatBlock' : 'heading',
+				  arguments: [$.browser.msie ? '<h6>' : 'h6'],
+				  tags: ['h6'],
+				  tooltip: 'Header 6'
+			},
+
+			cut   : { visible : true },
+			copy  : { visible : true },
+			paste : { visible : true },
+			html  : { visible: true }
+		}
+	}); 
+	
+	// date input fallback check
+	Administry.dateInput('#datepick'); 
+
+});
+</script>
+
+<h3>Published Article</h3>
+
+
+
+<fieldset>
+		<legend>Text fields</legend>
+		<p>
+			<label for="title">Article Title:</label><br/>Google Company
+						
+		</p>
+			<label for="departmentName">Article Department:</label><br/>Computerscience		<p>
+										
+		</p>
+			<label for="categoryName">Article Category:</label><br/>Search Engine
+			
+		<p>
+			*{<lable for="author"></lable>
+			<input type="hidden" value="${account.id}" name="author">}*
+		</p>
+		<p>
+			<label for="tagName">Related Tags:</label><br/>
+			<p>google, search engine</p>
+		</p>
+		
+		<p>In March 1999, the company moved its offices to Palo Alto, California, home to several other noted Silicon Valley technology startups.[62] The next year, against Page and Brin's initial opposition toward an advertising-funded search engine,[63] Google began selling advertisements associated with search keywords.[23] In order to maintain an uncluttered page design and increase speed, advertisements were solely text-based. Keywords were sold based on a combination of price bids and click-throughs, with bidding starting at five cents per click.[23] This model of selling keyword advertising was first pioneered by Goto.com, an Idealab spin-off created by Bill Gross.[64][65] When the company changed names to Overture Services, it sued Google over alleged infringements of the company's pay-per-click and bidding patents. Overture Services would later be bought by Yahoo! and renamed Yahoo! Search Marketing. The case was then settled out of court, with Google agreeing to issue shares of common stock to Yahoo! in exchange for a perpetual license.[66]
+
+During this time, Google was granted a patent describing its PageRank mechanism.[67] The patent was officially assigned to Stanford University and lists Lawrence Page as the inventor. In 2003, after outgrowing two other locations, the company leased its current office complex from Silicon Graphics at 1600 Amphitheatre Parkway in Mountain View, California.[68] The complex has since come to be known as the Googleplex, a play on the word googolplex, the number one followed by a googol zeroes. The Googleplex interiors were designed by Clive Wilkinson Architects. Three years later, Google would buy the property from SGI for $319 million.[69] By that time, the name "Google" had found its way into everyday language, causing the verb "google" to be added to the Merriam Webster Collegiate Dictionary and the Oxford English Dictionary, denoted as "to use the Google search engine to obtain information on the Internet."[70][71]
+
+Acquisitions and partnerships
+Since 2001, Google has acquired many companies, mainly focusing on small venture capital companies. In 2004, Google acquired Keyhole, Inc.[72] The start-up company developed a product called Earth Viewer that gave a three-dimensional view of the Earth. Google renamed the service to Google Earth in 2005. Two years later, Google bought the online video site YouTube for $1.65 billion in stock.[73] On April 13, 2007, Google reached an agreement to acquire DoubleClick for $3.1 billion, giving Google valuable relationships that DoubleClick had with Web publishers and advertising agencies.[74] Later that same year, Google purchased GrandCentral for $50 million.[75] The site would later be changed over to Google Voice. On August 5, 2009, Google bought out its first public company, purchasing video software maker On2 Technologies for $106.5 million.[76] Google also acquired Aardvark, a social network search engine, for $50 million, and commented on its internal blog, "we're looking forward to collaborating to see where we can take it".[77] In April 2010, Google announced it had acquired a hardware startup, Agnilux.[78]
+
+In addition to the many companies Google has purchased, the company has partnered with other organizations for everything from research to advertising. In 2005, Google partnered with NASA Ames Research Center to build 1,000,000 square feet (93,000 m2) of offices.[79] The offices would be used for research projects involving large-scale data management, nanotechnology, distributed computing, and the entrepreneurial space industry. Google entered into a partnership with Sun Microsystems in October 2005 to help share and distribute each other's technologies.[80] The company also partnered with AOLof Time Warner,[81] to enhance each other's video search services. Google's 2005 partnerships also included financing the new .mobi top-level domain for mobile devices, along with other companies including Microsoft, Nokia, and Ericsson.[82] Google would later launch "Adsense for Mobile", taking advantage of the emerging mobile advertising market.[83] Increasing its advertising reach even further, Google and Fox Interactive Media of News Corporation entered into a $900 million agreement to provide search and advertising on popular social networking site MySpace.
+		</p>
+		
+		
+
+
+</fieldset>
+
